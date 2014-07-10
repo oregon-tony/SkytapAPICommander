@@ -3,8 +3,15 @@
 
 #include <QMainWindow>
 
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+//#include <QWidget>
+#include <QBuffer>
+#include <QXmlStreamReader>
+#include <QUrl>
+
 namespace Ui {
-class SkyWindow;
+    class SkyWindow;
 }
 
 class SkyWindow : public QMainWindow
@@ -15,8 +22,27 @@ public:
     explicit SkyWindow(QWidget *parent = 0);
     ~SkyWindow();
 
+private slots:
+    void on_pbConnectButton_clicked();
+    void on_cbAPIUrl_currentIndexChanged(int index);
+    void fetch();
+    void metaDataChanged();
+    void readyRead();
+    void finished(QNetworkReply *reply);
+    void error(QNetworkReply::NetworkError);
+
 private:
-    Ui::SkyWindow *ui;
+     Ui::SkyWindow *ui;
+     void get(const QUrl &url);
+
+     QNetworkAccessManager manager;
+     QNetworkReply *currentReply;
+
+     QXmlStreamReader xml;
+
+     void parseXml();
+
+     // void loadTextFile(); // see saved link
 };
 
 #endif // SKYWINDOW_H
