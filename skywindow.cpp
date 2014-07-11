@@ -20,15 +20,21 @@ SkyWindow::~SkyWindow()
     delete ui;
 }
 
-
+/////////////////////////////////////////
 // Handle events of UI objects
+/////////////////////////////////////////
+
 void SkyWindow::on_pbConnectButton_clicked()
 {
 
 }
 
+// value of combobox changed
 void SkyWindow::on_cbAPIUrl_currentIndexChanged(int index)
 {
+   debugLog(ui->cbAPIUrl->currentText());
+   ui->treeWidget->clear();
+   xml.clear();
    get(ui->cbAPIUrl->currentText());
 }
 
@@ -232,3 +238,12 @@ void SkyWindow::error(QNetworkReply::NetworkError)
 //    get(urlDropDown->currentText());
 //}
 
+/////////////////////////////////////
+// Utility
+/////////////////////////////////////
+
+void SkyWindow::debugLog(QString logText)
+{
+     ui->teDebugLog->append(logText);
+
+}

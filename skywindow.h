@@ -30,6 +30,7 @@ private slots:
     void readyRead();
     void finished(QNetworkReply *reply);
     void error(QNetworkReply::NetworkError);
+    void debugLog(QString logText);
 
 private:
      Ui::SkyWindow *ui;
