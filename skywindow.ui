@@ -17,17 +17,20 @@
    <widget class="QLineEdit" name="leUserName">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>80</x>
       <y>20</y>
-      <width>113</width>
+      <width>271</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>oregon_tony@yahoo.com</string>
     </property>
    </widget>
    <widget class="QLabel" name="lbUserName">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>10</x>
       <y>20</y>
       <width>62</width>
       <height>16</height>
@@ -43,7 +46,7 @@
    <widget class="QLabel" name="lbAPIKey">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>350</x>
       <y>20</y>
       <width>62</width>
       <height>16</height>
@@ -52,15 +55,21 @@
     <property name="text">
      <string>Api Key:</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
    </widget>
    <widget class="QLineEdit" name="leAPIKey">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>420</x>
       <y>20</y>
       <width>401</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>2c645f371ffbcbd0891f7894a2f39393ba40d053</string>
     </property>
    </widget>
    <widget class="Line" name="lnLogin">
@@ -79,7 +88,7 @@
    <widget class="QPushButton" name="pbConnectButton">
     <property name="geometry">
      <rect>
-      <x>780</x>
+      <x>850</x>
       <y>20</y>
       <width>114</width>
       <height>32</height>

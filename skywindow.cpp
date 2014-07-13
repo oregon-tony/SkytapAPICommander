@@ -57,7 +57,16 @@ void SkyWindow::get(const QUrl &url)
     //doc.setRequestHeader("Accept", "application/xml");
     //request.setHeader();
 
-    request.setRawHeader("Authorization","Basic b3JlZ29uX3RvbnlAeWFob28uY29tOjJjNjQ1ZjM3MWZmYmNiZDA4OTFmNzg5NGEyZjM5MzkzYmE0MGQwNTM=");
+    // encode user and api key from form
+    // HTTP Basic authentication header value: base64(username:password)
+    QString username = ui->leUserName->text();
+    QString password = ui->leAPIKey->text();
+    QString concatenated = username + ":" + password;
+    QByteArray data = concatenated.toLocal8Bit().toBase64();
+    QString headerData = "Basic " + data;
+    request.setRawHeader("Authorization", headerData.toLocal8Bit());
+
+    //request.setRawHeader("Authorization","Basic b3JlZ29uX3RvbnlAeWFob28uY29tOjJjNjQ1ZjM3MWZmYmNiZDA4OTFmNzg5NGEyZjM5MzkzYmE0MGQwNTM=");
     request.setRawHeader("Accept","application/xml");
 
 
