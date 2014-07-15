@@ -21,6 +21,9 @@ SkyWindow::SkyWindow(QWidget *parent) :
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/projects/");
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/groups/");
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/departments/");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/notifications/");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/imports/");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/schedules/");
 }
 
 SkyWindow::~SkyWindow()
