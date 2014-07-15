@@ -1,5 +1,7 @@
-#include <QtNetwork>
+// commit local
+// push remote
 
+#include <QtNetwork>
 #include "skywindow.h"
 #include "ui_skywindow.h"
 
@@ -14,6 +16,7 @@ SkyWindow::SkyWindow(QWidget *parent) :
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/configurations/");
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/templates/");
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/vpns/");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/ips/");
 }
 
 SkyWindow::~SkyWindow()
