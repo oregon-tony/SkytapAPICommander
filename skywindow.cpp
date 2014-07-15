@@ -43,6 +43,7 @@ void SkyWindow::on_pbConnectButton_clicked()
 // value of combobox changed
 void SkyWindow::on_cbAPIUrl_currentIndexChanged(int index)
 {
+   // index not used
    debugLog(ui->cbAPIUrl->currentText());
    ui->treeWidget->clear();
    xml.clear();
