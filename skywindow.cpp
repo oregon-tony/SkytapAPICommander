@@ -17,6 +17,7 @@ SkyWindow::SkyWindow(QWidget *parent) :
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/templates/");
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/vpns/");
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/ips/");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/assets/");
 }
 
 SkyWindow::~SkyWindow()
