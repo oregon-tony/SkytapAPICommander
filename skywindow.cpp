@@ -18,6 +18,9 @@ SkyWindow::SkyWindow(QWidget *parent) :
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/vpns/");
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/ips/");
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/assets/");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/projects/");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/groups/");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/departments/");
 }
 
 SkyWindow::~SkyWindow()
