@@ -13,7 +13,7 @@ SkyWindow::SkyWindow(QWidget *parent) :
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/users/");
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/configurations/");
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/templates/");
-    ui->cbAPIUrl->addItem("https://cloud.skytap.com/networks/");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/vpns/");
 }
 
 SkyWindow::~SkyWindow()
