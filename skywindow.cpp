@@ -1,5 +1,6 @@
 // commit local
 // push remote
+// 7/19/14
 
 #include <QtNetwork>
 #include "skywindow.h"
@@ -24,6 +25,8 @@ SkyWindow::SkyWindow(QWidget *parent) :
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/notifications/");
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/imports/");
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/schedules/");
+
+    ui->treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
 }
 
 SkyWindow::~SkyWindow()
@@ -63,11 +66,6 @@ void SkyWindow::get(const QUrl &url)
         currentReply->disconnect(this);
         currentReply->deleteLater();
     }
-
-
-    //doc.setRequestHeader("Authorization", "Basic b3JlZ29uX3RvbnlAeWFob28uY29tOjJjNjQ1ZjM3MWZmYmNiZDA4OTFmNzg5NGEyZjM5MzkzYmE0MGQwNTM=");
-    //doc.setRequestHeader("Accept", "application/xml");
-    //request.setHeader();
 
     // encode user and api key from form
     // HTTP Basic authentication header value: base64(username:password)
@@ -268,3 +266,32 @@ void SkyWindow::debugLog(QString logText)
      ui->teDebugLog->append(logText);
 
 }
+
+void SkyWindow::on_treeWidget_customContextMenuRequested(const QPoint &pos)
+{
+    debugLog("Right Click Menu");
+
+    QMenu* xmlTableRightClick = new QMenu();
+
+    QAction* xmlTablePopUpCopy = new QAction("Copy", this);
+    connect(xmlTablePopUpCopy, SIGNAL(triggered()), this, SLOT(doXmlTablePopUpCopy()));
+
+    //QTreeWidgetItem *selectedItem = new QTreeWidgetItem;
+
+    //selectedItem = ui->treeWidget->itemAt(pos);
+
+    //    if (selectedItem-> == 1) {
+
+            xmlTableRightClick->addAction(xmlTablePopUpCopy);
+//            menu->addAction(openAct);
+//            menu->addAction(viewAct);
+
+      //  }
+        xmlTableRightClick->exec(QCursor::pos());
+}
+
+void SkyWindow::doXmlTablePopUpCopy()
+{
+    debugLog("COPY OPTION PICKED");
+}
+

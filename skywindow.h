@@ -26,11 +26,14 @@ private slots:
     void on_pbConnectButton_clicked();
     void on_cbAPIUrl_currentIndexChanged(int index);
     void fetch();
+    void doXmlTablePopUpCopy(); //
     void metaDataChanged();
     void readyRead();
     void finished(QNetworkReply *reply);
     void error(QNetworkReply::NetworkError);
     void debugLog(QString logText);
+
+    void on_treeWidget_customContextMenuRequested(const QPoint &pos);
 
 private:
      Ui::SkyWindow *ui;
