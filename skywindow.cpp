@@ -276,18 +276,15 @@ void SkyWindow::on_treeWidget_customContextMenuRequested(const QPoint &pos)
     QAction* xmlTablePopUpCopy = new QAction("Copy", this);
     connect(xmlTablePopUpCopy, SIGNAL(triggered()), this, SLOT(doXmlTablePopUpCopy()));
 
-    //QTreeWidgetItem *selectedItem = new QTreeWidgetItem;
+    QTreeWidgetItem *clickedItem = new QTreeWidgetItem;
 
-    //selectedItem = ui->treeWidget->itemAt(pos);
+    clickedItem = ui->treeWidget->itemAt(pos);
+    debugLog(clickedItem->text(0));
+    debugLog(clickedItem->text(1));
 
-    //    if (selectedItem-> == 1) {
+    xmlTableRightClick->addAction(xmlTablePopUpCopy);
+    xmlTableRightClick->exec(QCursor::pos());
 
-            xmlTableRightClick->addAction(xmlTablePopUpCopy);
-//            menu->addAction(openAct);
-//            menu->addAction(viewAct);
-
-      //  }
-        xmlTableRightClick->exec(QCursor::pos());
 }
 
 void SkyWindow::doXmlTablePopUpCopy()
