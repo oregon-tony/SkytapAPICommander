@@ -278,9 +278,9 @@ void SkyWindow::on_treeWidget_customContextMenuRequested(const QPoint &pos)
 
     QTreeWidgetItem *clickedItem = new QTreeWidgetItem;
 
-    clickedItem = ui->treeWidget->itemAt(pos);
-    debugLog(clickedItem->text(0));
-    debugLog(clickedItem->text(1));
+    clickedItem = ui->treeWidget->itemAt(pos);                              // get the item at the current cursor position
+    debugLog(clickedItem->text(0));                                                 // left item
+    debugLog(clickedItem->text(1));                                                 // right item
 
     xmlTableRightClick->addAction(xmlTablePopUpCopy);
     xmlTableRightClick->exec(QCursor::pos());
