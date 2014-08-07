@@ -57,7 +57,7 @@ void SkyWindow::on_cbAPIUrl_currentIndexChanged(int index)
 // networking stuff
 /////////////////////////////////////////
 /*
-    Starts the network request and connects the needed signals
+    Starts the network GET request and connects the needed signals
 */
 void SkyWindow::get(const QUrl &url)
 {
