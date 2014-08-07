@@ -50,7 +50,7 @@ void SkyWindow::on_cbAPIUrl_currentIndexChanged(int index)
    debugLog(ui->cbAPIUrl->currentText());
    ui->treeWidget->clear();
    xml.clear();
-   get(ui->cbAPIUrl->currentText());
+   doRest(ui->cbRestAction->currentText(), ui->cbAPIUrl->currentText());
 }
 
 /////////////////////////////////////////
@@ -59,8 +59,11 @@ void SkyWindow::on_cbAPIUrl_currentIndexChanged(int index)
 /*
     Starts the network GET request and connects the needed signals
 */
-void SkyWindow::get(const QUrl &url)
+void SkyWindow::doRest(const QString &restCommand, const QUrl &url)
 {
+
+    debugLog("rest Command:"+ restCommand);
+
     QNetworkRequest request(url);
     if (currentReply) {
         currentReply->disconnect(this);
@@ -79,10 +82,35 @@ void SkyWindow::get(const QUrl &url)
     //request.setRawHeader("Authorization","Basic b3JlZ29uX3RvbnlAeWFob28uY29tOjJjNjQ1ZjM3MWZmYmNiZDA4OTFmNzg5NGEyZjM5MzkzYmE0MGQwNTM=");
     request.setRawHeader("Accept","application/xml");
 
+    // command can either be GET, POST, etc
 
-    currentReply = manager.get(request);
+    // set up a list of command so we can get an index for the switch command
+    QStringList restList;
+    restList << "GET" << "POST"; // get = 0, post =1
+
+    // do steps for the current command use "restCommand" to find index in restList for switch statement
+    switch(restList.indexOf(restCommand))
+    {
+        case 0:
+            debugLog("doing GET");
+            currentReply = manager.get(request);
+            break;
+        case 1:
+            debugLog("doing POST");
+            /////////////////
+            //ui->twPostValues->setRowCount(1);
+            //ui->twPostValues->setColumnCount(1);
+            //ui->twPostValues->setItem(0, 0, new QTableWidgetItem("Hello World!"));
+            ///
+
+            debugLog(ui->twPostValues->itemAt(0, 0)->text());
+            break;
+    }
+
+
+    // common to all commands
     connect(currentReply, SIGNAL(readyRead()), this, SLOT(readyRead()));
-    connect(currentReply, SIGNAL(metaDataChanged()), this, SLOT(metaDataChanged()));
+    connect(currentReply, SIGNAL(metaDataChanged()), this, SLOT(metaDataChanged())); // pass command as parameter ??????
     connect(currentReply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(error(QNetworkReply::NetworkError)));
 }
 
@@ -116,7 +144,9 @@ void SkyWindow::metaDataChanged()
 {
     QUrl redirectionTarget = currentReply->attribute(QNetworkRequest::RedirectionTargetAttribute).toUrl();
     if (redirectionTarget.isValid()) {
-        get(redirectionTarget);
+
+// how to reference current command other than grabbgin UI object value again?
+        doRest(ui->cbRestAction->currentText(), redirectionTarget);
     }
 }
 

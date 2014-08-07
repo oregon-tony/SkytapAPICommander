@@ -37,7 +37,7 @@ private slots:
 
 private:
      Ui::SkyWindow *ui;
-     void get(const QUrl &url);
+     void doRest(const QString &restCommand, const QUrl &url);
 
      QNetworkAccessManager manager;
      QNetworkReply *currentReply;
