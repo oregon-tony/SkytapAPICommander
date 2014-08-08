@@ -102,8 +102,15 @@ void SkyWindow::doRest(const QString &restCommand, const QUrl &url)
             //ui->twPostValues->setColumnCount(1);
             //ui->twPostValues->setItem(0, 0, new QTableWidgetItem("Hello World!"));
             ///
-
+            // get values from grid
             debugLog(ui->twPostValues->itemAt(0, 0)->text());
+            // do post
+            QUrl params; // set up parameters from grid
+            params.addQueryItem("key", "value");
+            params.addQueryItem("another_key", "äöutf8-value");
+
+            currentReply = manager.post(request, params.encodedQuery());
+
             break;
     }
 
