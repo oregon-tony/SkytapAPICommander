@@ -130,6 +130,11 @@
       <string>POST</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>PUT</string>
+     </property>
+    </item>
    </widget>
    <widget class="QTableWidget" name="twPostValues">
     <property name="geometry">

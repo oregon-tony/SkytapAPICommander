@@ -13,18 +13,20 @@ SkyWindow::SkyWindow(QWidget *parent) :
 
     ui->setupUi(this);
 
-    ui->cbAPIUrl->addItem("https://cloud.skytap.com/users/");
-    ui->cbAPIUrl->addItem("https://cloud.skytap.com/configurations/");
-    ui->cbAPIUrl->addItem("https://cloud.skytap.com/templates/");
-    ui->cbAPIUrl->addItem("https://cloud.skytap.com/vpns/");
-    ui->cbAPIUrl->addItem("https://cloud.skytap.com/ips/");
-    ui->cbAPIUrl->addItem("https://cloud.skytap.com/assets/");
-    ui->cbAPIUrl->addItem("https://cloud.skytap.com/projects/");
-    ui->cbAPIUrl->addItem("https://cloud.skytap.com/groups/");
-    ui->cbAPIUrl->addItem("https://cloud.skytap.com/departments/");
-    ui->cbAPIUrl->addItem("https://cloud.skytap.com/notifications/");
-    ui->cbAPIUrl->addItem("https://cloud.skytap.com/imports/");
-    ui->cbAPIUrl->addItem("https://cloud.skytap.com/schedules/");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/users");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/configurations");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/templates");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/vpns");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/ips");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/assets");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/projects");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/groups");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/departments");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/notifications");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/imports");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/schedules");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/configurations/1329704");
+    ui->cbAPIUrl->addItem("https://cloud.skytap.com/configurations/1329704?runstate=running");
 
     ui->treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
 }
@@ -81,12 +83,18 @@ void SkyWindow::doRest(const QString &restCommand, const QUrl &url)
 
     //request.setRawHeader("Authorization","Basic b3JlZ29uX3RvbnlAeWFob28uY29tOjJjNjQ1ZjM3MWZmYmNiZDA4OTFmNzg5NGEyZjM5MzkzYmE0MGQwNTM=");
     request.setRawHeader("Accept","application/xml");
+    request.setRawHeader("Content-Type","application/xml");
 
-    // command can either be GET, POST, etc
+    // command can either be GET, POST, PUT, etc
 
     // set up a list of command so we can get an index for the switch command
     QStringList restList;
-    restList << "GET" << "POST"; // get = 0, post =1
+    restList << "GET" << "POST" << "PUT"; // get = 0, post =1, put =2
+
+    QByteArray postData; // final data of param string converted to text
+    QUrl params;
+    QUrlQuery query; // set up parameters from grid
+
 
     // do steps for the current command use "restCommand" to find index in restList for switch statement
     switch(restList.indexOf(restCommand))
@@ -95,6 +103,7 @@ void SkyWindow::doRest(const QString &restCommand, const QUrl &url)
             debugLog("doing GET");
             currentReply = manager.get(request);
             break;
+
         case 1:
             debugLog("doing POST");
             /////////////////
@@ -103,14 +112,35 @@ void SkyWindow::doRest(const QString &restCommand, const QUrl &url)
             //ui->twPostValues->setItem(0, 0, new QTableWidgetItem("Hello World!"));
             ///
             // get values from grid
-            debugLog(ui->twPostValues->itemAt(0, 0)->text());
+            //debugLog(ui->twPostValues->itemAt(0, 0)->text());
             // do post
-            QUrl params; // set up parameters from grid
-            params.addQueryItem("key", "value");
-            params.addQueryItem("another_key", "äöutf8-value");
+            //params.addQueryItem("runstate", "halted");
+           // params.addQueryItem("another_key", "äöutf8-value");
 
-            currentReply = manager.post(request, params.encodedQuery());
+            //finalParamData.append(params.toString());
 
+            //currentReply = manager.post(request, finalParamData);
+            break;
+
+        case 2:
+            debugLog("doing PUT");
+            /////////////////
+            //ui->twPostValues->setRowCount(1);
+            //ui->twPostValues->setColumnCount(1);
+            //ui->twPostValues->setItem(0, 0, new QTableWidgetItem("Hello World!"));
+            ///
+            // get values from grid
+            //debugLog(ui->twPostValues->itemAt(0, 0)->text());
+            // do post
+            //query.addQueryItem("", "");
+            //params.setQuery(query);
+
+            //postData = params.toEncoded(QUrl::RemoveFragment);
+
+            //finalParamData.append(params.toString(QUrl::FullyEncoded).toUtf8());
+            debugLog("Post Data:" + postData);
+
+            currentReply = manager.put(request,postData);
             break;
     }
 
@@ -272,7 +302,11 @@ void SkyWindow::parseXml()
 
 void SkyWindow::error(QNetworkReply::NetworkError)
 {
-    qWarning("error retrieving RSS feed");
+    qWarning("Network returned error.");
+
+    QString reason = currentReply->attribute( QNetworkRequest::HttpReasonPhraseAttribute ).toString();
+     debugLog("Error reason:" + reason);
+
     currentReply->disconnect(this);
     currentReply->deleteLater();
     currentReply = 0;
