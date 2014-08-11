@@ -1,6 +1,7 @@
 // commit local
 // push remote
-// 7/19/14
+// 08-11-2014
+// adding integration with Jenkins
 
 #include <QtNetwork>
 #include "skywindow.h"
