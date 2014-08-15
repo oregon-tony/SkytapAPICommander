@@ -1,6 +1,6 @@
 // commit local
 // push remote
-// 08-13-2014
+// 08-14-2014
 // adding integration with Jenkins worker configuration
 
 #include <QtNetwork>
