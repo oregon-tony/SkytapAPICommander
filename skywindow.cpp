@@ -11,7 +11,7 @@ SkyWindow::SkyWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::SkyWindow)
 {
-
+    //ui = new Ui::SkyWindow();
     ui->setupUi(this);
 
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/users");
@@ -68,6 +68,7 @@ void SkyWindow::doRest(const QString &restCommand, const QUrl &url)
     debugLog("rest Command:"+ restCommand);
 
     QNetworkRequest request(url);
+
     if (currentReply) {
         currentReply->disconnect(this);
         currentReply->deleteLater();
@@ -143,14 +144,14 @@ void SkyWindow::doRest(const QString &restCommand, const QUrl &url)
 
             currentReply = manager.put(request,postData);
             break;
-    }
-
+    } //switch
 
     // common to all commands
-    connect(currentReply, SIGNAL(readyRead()), this, SLOT(readyRead()));
-    connect(currentReply, SIGNAL(metaDataChanged()), this, SLOT(metaDataChanged())); // pass command as parameter ??????
-    connect(currentReply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(error(QNetworkReply::NetworkError)));
-}
+   connect(currentReply, SIGNAL(readyRead()), this, SLOT(readyRead()));
+   connect(currentReply, SIGNAL(metaDataChanged()), this, SLOT(metaDataChanged())); // pass command as parameter ??????
+   connect(currentReply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(error(QNetworkReply::NetworkError)));
+
+} // function
 
 /*
     Starts fetching data from a news source specified in the line
