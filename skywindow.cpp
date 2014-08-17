@@ -11,9 +11,15 @@ SkyWindow::SkyWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::SkyWindow)
 {
+    ///////////////////////////////////
+    // any initialization
+    ///////////////////////////////////
+     currentReply = 0; // init current reply
+
     //ui = new Ui::SkyWindow();
     ui->setupUi(this);
 
+    /*
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/users");
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/configurations");
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/templates");
@@ -28,6 +34,7 @@ SkyWindow::SkyWindow(QWidget *parent) :
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/schedules");
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/configurations/1329704");
     ui->cbAPIUrl->addItem("https://cloud.skytap.com/configurations/1329704?runstate=running");
+    */
 
     ui->treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
 }

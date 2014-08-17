@@ -110,6 +110,66 @@
     <property name="editable">
      <bool>true</bool>
     </property>
+    <item>
+     <property name="text">
+      <string>https://cloud.skytap.com/assets</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>https://cloud.skytap.com/configurations</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>https://cloud.skytap.com/departments</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>https://cloud.skytap.com/groups</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>https://cloud.skytap.com/imports</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>https://cloud.skytap.com/ips</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>https://cloud.skytap.com/notifications</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>https://cloud.skytap.com/projects</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>https://cloud.skytap.com/schedules</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>https://cloud.skytap.com/templates</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>https://cloud.skytap.com/users</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>https://cloud.skytap.com/vpn</string>
+     </property>
+    </item>
    </widget>
    <widget class="QComboBox" name="cbRestAction">
     <property name="geometry">
