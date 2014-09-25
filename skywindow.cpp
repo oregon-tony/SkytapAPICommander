@@ -1,7 +1,7 @@
 // commit local
 // push remote
 // 09-24-2014
-// attempting UC Push, try 2
+// attempting UC Push, try 3
 
 #include <QtNetwork>
 #include "skywindow.h"
