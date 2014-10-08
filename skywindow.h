@@ -32,8 +32,8 @@ private slots:
     void finished(QNetworkReply *reply);
     void error(QNetworkReply::NetworkError);
     void debugLog(QString logText);
-
     void on_treeWidget_customContextMenuRequested(const QPoint &pos);
+    void on_pbQuitButton_clicked(); // Quit Button
 
 private:
      Ui::SkyWindow *ui;

@@ -334,10 +334,23 @@
      <enum>Qt::LeftToRight</enum>
     </property>
     <property name="text">
-     <string>v.024</string>
+     <string>v.025</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbQuitButton">
+    <property name="geometry">
+     <rect>
+      <x>898</x>
+      <y>625</y>
+      <width>114</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Quit</string>
     </property>
    </widget>
   </widget>

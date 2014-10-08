@@ -367,8 +367,18 @@ void SkyWindow::on_treeWidget_customContextMenuRequested(const QPoint &pos)
 
 }
 
+
+/////////
+/// \brief SkyWindow::doXmlTablePopUpCopy
+///// COPY right click on grid results
 void SkyWindow::doXmlTablePopUpCopy()
 {
     debugLog("COPY OPTION PICKED");
 }
 
+
+// Quit Button Pressed
+void SkyWindow::on_pbQuitButton_clicked()
+{
+    QApplication::quit();
+}
