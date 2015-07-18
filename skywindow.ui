@@ -69,7 +69,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>2c645f371ffbcbd0891f7894a2f39393ba40d053</string>
+     <string>6cc060f551bd5a26a616ed69952b36d06066b234</string>
     </property>
    </widget>
    <widget class="Line" name="lnLogin">
@@ -196,7 +196,7 @@
      </property>
     </item>
    </widget>
-   <widget class="QTableWidget" name="twPostValues">
+   <widget class="QTableWidget" name="tblBaseOperations">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -250,14 +250,24 @@
     <row/>
     <column>
      <property name="text">
-      <string>item</string>
+      <string>Action</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>value</string>
+      <string>URL</string>
      </property>
     </column>
+    <item row="0" column="0">
+     <property name="text">
+      <string>Get Configuration</string>
+     </property>
+    </item>
+    <item row="0" column="1">
+     <property name="text">
+      <string>https://cloud.skytap.com/configurations</string>
+     </property>
+    </item>
    </widget>
    <widget class="Line" name="lnHeaders">
     <property name="geometry">
@@ -288,9 +298,9 @@
    <widget class="QTreeWidget" name="treeWidget">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>521</x>
       <y>260</y>
-      <width>831</width>
+      <width>360</width>
       <height>311</height>
      </rect>
     </property>
@@ -299,12 +309,12 @@
     </property>
     <column>
      <property name="text">
-      <string notr="true">1</string>
+      <string notr="true">Key</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string notr="true">2</string>
+      <string notr="true">Value</string>
      </property>
     </column>
    </widget>
@@ -334,7 +344,7 @@
      <enum>Qt::LeftToRight</enum>
     </property>
     <property name="text">
-     <string>v.01</string>
+     <string>v.02</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -352,6 +362,90 @@
     <property name="text">
      <string>Quit</string>
     </property>
+   </widget>
+   <widget class="QTabWidget" name="tbOptions">
+    <property name="geometry">
+     <rect>
+      <x>42</x>
+      <y>268</y>
+      <width>453</width>
+      <height>302</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tbHeaders">
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Headers&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <attribute name="title">
+      <string>Headers</string>
+     </attribute>
+     <widget class="QTableWidget" name="tblHeaderPairs">
+      <property name="geometry">
+       <rect>
+        <x>32</x>
+        <y>26</y>
+        <width>389</width>
+        <height>192</height>
+       </rect>
+      </property>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Header Name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Header Value</string>
+       </property>
+      </column>
+      <item row="0" column="0">
+       <property name="text">
+        <string>Accept</string>
+       </property>
+      </item>
+      <item row="0" column="1">
+       <property name="text">
+        <string>application/xml</string>
+       </property>
+      </item>
+      <item row="1" column="0">
+       <property name="text">
+        <string>Content-Type</string>
+       </property>
+      </item>
+      <item row="1" column="1">
+       <property name="text">
+        <string>application/xml</string>
+       </property>
+      </item>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tbParams">
+     <attribute name="title">
+      <string>Parameters</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tbBody">
+     <attribute name="title">
+      <string>Body</string>
+     </attribute>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">

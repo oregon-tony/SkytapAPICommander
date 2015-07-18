@@ -382,3 +382,9 @@ void SkyWindow::on_pbQuitButton_clicked()
 {
     QApplication::quit();
 }
+
+
+void SkyWindow::on_pbExecuteButton_clicked()
+{
+
+}

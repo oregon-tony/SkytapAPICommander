@@ -35,6 +35,10 @@ private slots:
     void on_treeWidget_customContextMenuRequested(const QPoint &pos);
     void on_pbQuitButton_clicked(); // Quit Button
 
+    void on_pbExecuteButton_clicked();
+
+    //void on_cbAPIUrl_currentIndexChanged(const QString &arg1);
+
 private:
      Ui::SkyWindow *ui;
      void doRest(const QString &restCommand, const QUrl &url);
