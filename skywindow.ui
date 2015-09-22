@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1024</width>
-    <height>768</height>
+    <width>1200</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -77,7 +77,7 @@
      <rect>
       <x>10</x>
       <y>50</y>
-      <width>921</width>
+      <width>875</width>
       <height>16</height>
      </rect>
     </property>
@@ -88,7 +88,7 @@
    <widget class="QPushButton" name="pbConnectButton">
     <property name="geometry">
      <rect>
-      <x>850</x>
+      <x>660</x>
       <y>10</y>
       <width>115</width>
       <height>45</height>
@@ -113,6 +113,16 @@
     <item>
      <property name="text">
       <string>https://cloud.skytap.com/assets</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>https://cloud.skytap.com/v2/configurations/&lt;configuration-id&gt;?&lt;attr-name&gt;=&lt;attr-value&gt;</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>https://cloud.skytap.com/configurations/4643624?runstate=suspended</string>
      </property>
     </item>
     <item>
@@ -274,7 +284,7 @@
      <rect>
       <x>10</x>
       <y>220</y>
-      <width>891</width>
+      <width>875</width>
       <height>16</height>
      </rect>
     </property>
@@ -285,9 +295,9 @@
    <widget class="QTextEdit" name="teDebugLog">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>12</x>
       <y>590</y>
-      <width>831</width>
+      <width>826</width>
       <height>113</height>
      </rect>
     </property>
@@ -298,7 +308,7 @@
    <widget class="QTreeWidget" name="treeWidget">
     <property name="geometry">
      <rect>
-      <x>521</x>
+      <x>476</x>
       <y>260</y>
       <width>360</width>
       <height>311</height>
@@ -344,7 +354,7 @@
      <enum>Qt::LeftToRight</enum>
     </property>
     <property name="text">
-     <string>v.022</string>
+     <string>v.023</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -353,8 +363,8 @@
    <widget class="QPushButton" name="pbQuitButton">
     <property name="geometry">
      <rect>
-      <x>898</x>
-      <y>625</y>
+      <x>770</x>
+      <y>18</y>
       <width>114</width>
       <height>32</height>
      </rect>
@@ -366,8 +376,8 @@
    <widget class="QTabWidget" name="tbOptions">
     <property name="geometry">
      <rect>
-      <x>42</x>
-      <y>268</y>
+      <x>19</x>
+      <y>259</y>
       <width>453</width>
       <height>302</height>
      </rect>
@@ -376,7 +386,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tbHeaders">
      <property name="toolTip">
@@ -445,6 +455,16 @@
      <attribute name="title">
       <string>Body</string>
      </attribute>
+     <widget class="QTextEdit" name="textEdit">
+      <property name="geometry">
+       <rect>
+        <x>39</x>
+        <y>45</y>
+        <width>372</width>
+        <height>199</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -453,7 +473,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1024</width>
+     <width>1200</width>
      <height>22</height>
     </rect>
    </property>

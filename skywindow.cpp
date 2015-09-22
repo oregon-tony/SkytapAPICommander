@@ -3,6 +3,9 @@
 // 09-24-2014
 // attempting UC Push, try 5
 
+// useful links
+// Custom List Item: http://www.qtcentre.org/threads/27777-Customize-QListWidgetItem-how-to
+
 #include <QtNetwork>
 #include "skywindow.h"
 #include "ui_skywindow.h"
@@ -91,8 +94,34 @@ void SkyWindow::doRest(const QString &restCommand, const QUrl &url)
     request.setRawHeader("Authorization", headerData.toLocal8Bit());
 
     //request.setRawHeader("Authorization","Basic b3JlZ29uX3RvbnlAeWFob28uY29tOjJjNjQ1ZjM3MWZmYmNiZDA4OTFmNzg5NGEyZjM5MzkzYmE0MGQwNTM=");
-    request.setRawHeader("Accept","application/xml");
-    request.setRawHeader("Content-Type","application/xml");
+    //request.setRawHeader("Accept","application/xml");
+    //request.setRawHeader("Content-Type","application/xml");
+
+    ////////////////////////////////////////////////////
+    // try to loop through all the headers and their values
+    ////////////////////////////////////////////////////
+    int headerRows = 0;
+    int headerColumns = 0;
+
+    // get actual, "1" based count of number of rows, 2 rows = "2"
+    headerRows = ui->tblHeaderPairs->rowCount();
+    headerColumns = ui->tblHeaderPairs->columnCount();
+    //qDebug() << headerRows;
+    //qDebug() << headerColumns;
+
+    // make sure there are some rows to process
+    if (headerRows > 0)
+    {
+        for (int i=0; i<headerRows; i++)
+        {
+            // i,0 = header name, i,1 = header value. like: "Accept","application/xml"
+            QByteArray temp_header_name = (ui->tblHeaderPairs->item(i, 0)->text()).toUtf8();
+            QByteArray temp_header_value = (ui->tblHeaderPairs->item(i, 1)->text()).toUtf8();
+            request.setRawHeader(temp_header_name, temp_header_value);
+            //for (int j=0; j<headerColumns; j++ ) qDebug() << ui->tblHeaderPairs->item(i, j)->text();
+        } // headerRows
+    } // if
+    ////////////////////////////////////////////////
 
     // command can either be GET, POST, PUT, etc
 

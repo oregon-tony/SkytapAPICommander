@@ -50,6 +50,7 @@ private:
 
      void parseXml();
 
+
      // void loadTextFile(); // see saved link
 };
 
