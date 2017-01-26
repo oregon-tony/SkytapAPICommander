@@ -412,6 +412,15 @@ void SkyWindow::on_pbQuitButton_clicked()
     QApplication::quit();
 }
 
+// slot to determine if both user and password fields are filled in, if not disable Connect button
+void SkyWindow::setConnectButtonUpdateState()
+{
+    bool pl1NameEmpty = ui-> leUserName-> text(). isEmpty();
+    bool pl2NameEmpty = ui-> leAPIKey-> text(). isEmpty();
+    ui->pbConnectButton->setDisabled(pl1NameEmpty || pl2NameEmpty);
+
+} // end updateConnectButtonState
+
 
 void SkyWindow::on_pbExecuteButton_clicked()
 {

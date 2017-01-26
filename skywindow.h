@@ -9,6 +9,7 @@
 #include <QBuffer>
 #include <QXmlStreamReader>
 #include <QUrl>
+//#include <QMenuBar>
 
 namespace Ui {
     class SkyWindow;
@@ -36,6 +37,8 @@ private slots:
     void on_pbQuitButton_clicked(); // Quit Button
 
     void on_pbExecuteButton_clicked();
+
+    void setConnectButtonUpdateState(); // determine if both user and password fields are not empty
 
     //void on_cbAPIUrl_currentIndexChanged(const QString &arg1);
 
