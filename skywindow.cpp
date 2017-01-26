@@ -1,7 +1,7 @@
 // commit local
 // push remote
-// 09-24-2014
-// attempting UC Push, try 5
+// 01-26-2017
+// test push
 
 // useful links
 // Custom List Item: http://www.qtcentre.org/threads/27777-Customize-QListWidgetItem-how-to
